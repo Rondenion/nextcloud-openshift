@@ -34,8 +34,6 @@ objects:
     name: nextcloud-okayama
   spec:
     replicas: 1
-    nodeSelector:
-      'zone': 'okayama'
     selector:
       app: nextcloud-okayama
       deploymentconfig: nextcloud-okayama
@@ -55,6 +53,8 @@ objects:
           app: nextcloud-okayama
           deploymentconfig: nextcloud-okayama
       spec:
+        nodeSelector:
+          'zone': 'okayama'
         containers:
         - env:
           - name: NC_dbhost
