@@ -109,8 +109,6 @@ objects:
     name: nextcloud-shizuoka
   spec:
     replicas: 1
-    nodeSelector:
-      'zone': 'shizuoka'
     selector:
       app: nextcloud-shizuoka
       deploymentconfig: nextcloud-shizuoka
@@ -130,6 +128,8 @@ objects:
           app: nextcloud-shizuoka
           deploymentconfig: nextcloud-shizuoka
       spec:
+        nodeSelector:
+          'zone': 'shizuoka'
         containers:
         - env:
           - name: NC_dbhost
